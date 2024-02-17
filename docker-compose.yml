@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    build: .
+    container_name: todo
+    restart: always
+    ports: 
+      - "3306:3306"
+    volumes:
+      - .docker/dbdata:/var/lib/mariadb/data
+    environment:
+      - MARIADB_ROOT_PASSWORD=123
+      - DB_NAME=todo
